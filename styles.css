@@ -26,13 +26,13 @@ Fonts:
 
 body {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
-    padding: clamp(16px, 4vh, 40px) 16px;
+    padding: clamp(16px, 4vh, 40px) 16px 0;
     background-color: #fff9e6;
     color: #222;
-    font-family: Arial, sans-serif;
+    font-family: "Proxima Nova", Avenir, sans-serif;
 }
 
 .game-wrapper {
@@ -67,6 +67,20 @@ body {
     font-weight: bold;
 }
 
+#difficulty {
+    padding: 8px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #222;
+    font: inherit;
+}
+
+#difficulty:focus-visible {
+    outline: 3px solid #2e9df7;
+    outline-offset: 3px;
+}
+
 #game-container {
     --fall-distance: clamp(320px, 65vh, 600px);
     width: 100%;
@@ -78,22 +92,39 @@ body {
     overflow: hidden;
 }
 
-#start-btn {
+.milestone-message {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    color: #159a48;
+    font-size: clamp(20px, 4vw, 24px);
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+}
+
+#start-btn,
+#replay-btn {
     padding: 8px 16px;
     background-color: #ffc907;
     color: #222;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: inherit;
     font-size: 16px;
     font-weight: bold;
 }
 
-#start-btn:hover {
+#start-btn:hover,
+#replay-btn:hover {
     background-color: #e6b500;
 }
 
-#start-btn:focus-visible {
+#start-btn:focus-visible,
+#replay-btn:focus-visible {
     outline: 3px solid #2e9df7;
     outline-offset: 3px;
 }
@@ -110,6 +141,34 @@ body {
     font-size: clamp(20px, 4vw, 24px);
     font-weight: bold;
     text-align: center;
+}
+
+.difficulty-description {
+    width: 100%;
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+}
+
+.site-footer {
+    width: 100vw;
+    margin-top: auto;
+    border-top: clamp(24px, 5vh, 48px) solid #fff9e6;
+    padding: 16px 0;
+    background-color: #159A48;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+.site-footer a {
+    color: #ffc907;
+    font-weight: bold;
+}
+
+.site-footer a:focus-visible {
+    outline: 3px solid #2e9df7;
+    outline-offset: 3px;
 }
 
 .water-drop {
@@ -131,7 +190,7 @@ body {
 }
 
 .bad-drop {
-    background-color: #ff4444;
+    background-color: #F5402C;
 }
 
 .game-title {
@@ -157,7 +216,7 @@ body {
 
 @media (max-width: 480px) {
     body {
-        padding: 16px 12px;
+        padding: 16px 12px 0;
     }
 
     .score-panel {
@@ -166,7 +225,8 @@ body {
         gap: 10px 18px;
     }
 
-    #start-btn {
+    #start-btn,
+    #replay-btn {
         flex-basis: 100%;
     }
 

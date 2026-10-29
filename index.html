@@ -14,13 +14,28 @@
         <div class="score-panel">
             <div class="score">Score: <span id="score">0</span></div>
             <div class="timer">Time: <span id="time">30</span>s</div>
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Normal</option>
+                <option value="hard">Hard</option>
+            </select>
             <button id="start-btn">Start Game</button>
+            <button id="replay-btn" hidden>Replay</button>
         </div>
-        <p id="game-result" class="game-result" aria-live="polite"></p>
+        <p id="difficulty-description" class="difficulty-description" aria-live="polite"></p>
         
         <div id="game-container">
+            <p id="milestone-message" class="milestone-message" aria-live="polite" hidden>Halfway there!</p>
         </div>
+        <p id="game-result" class="game-result" aria-live="polite"></p>
     </div>
+    <footer class="site-footer">
+        <p>Donate to <a href="https://www.charitywater.org/">charity:water</a></p>
+    </footer>
+    <audio id="game-start-sound" src="sound%20effects/freesound_community-game-start-6104.mp3" preload="auto"></audio>
+    <audio id="game-over-sound" src="sound%20effects/alphix-game-over-417465.mp3" preload="auto"></audio>
+    <audio id="game-win-sound" src="sound%20effects/winner.mp3" preload="auto"></audio>
     
     <script src="script.js"></script>
 </body>
